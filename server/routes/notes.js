@@ -16,4 +16,16 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+  const note = req.body
+  db.addNote(note)
+    .then((results) => {
+      console.log('post route:', results)
+      res.json(results)
+    })
+    .catch((err) => {
+      res.status(500).send(err.message)
+    })
+})
+
 module.exports = router

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchNotes } from '../actions'
 
 // import Note from './Note'
+import AddNote from  './AddNote'
 
 function Board(){
 const notes = useSelector(state => state.notes)
@@ -14,11 +15,14 @@ useEffect(() => {
 }, [])
 
   return(
+    <>
     <div className='board'>
         {notes.map((note) => (
       <div key={note.id} className='note'>{note.text}</div>
       ))}
     </div>
+    <AddNote/>
+    </>
   )
 }
 

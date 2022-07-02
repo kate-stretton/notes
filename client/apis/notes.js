@@ -7,3 +7,13 @@ export function getNotes() {
     return res.body.notes
   })
 }
+
+export function addNote(note) {
+  console.log(note)
+  return request
+    .post(rootUrl + '/notes/')
+    .send(note)
+    .then((res) => {
+      return res.body
+    })
+}
