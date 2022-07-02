@@ -8,12 +8,11 @@ export function getNotes() {
   })
 }
 
-export function addNote(note) {
-  console.log(note)
+export function addNewNote(newNote) {
   return request
-    .post(rootUrl + '/notes/')
-    .send(note)
+    .post(rootUrl + '/notes')
+    .send({ newNote })
     .then((res) => {
-      return res.body
+      return res.body.notes
     })
 }

@@ -3,10 +3,11 @@ import { SET_NOTES } from '../actions'
 const initialState = []
 
 const reducer = (state = initialState, action) => {
-  const { type, payload } = action
-  switch (type) {
+  switch (action.type) {
     case SET_NOTES:
-      return payload
+      return action.notes
+    // case ADD_NOTE:
+    //   return [...state, payload]
     default:
       return state
   }

@@ -1,6 +1,6 @@
 exports.up = function (knex) {
   return knex.schema.createTable('notes', (table) => {
-    table.increments('id').primary()
+    table.increments('id')
     table.string('text')
   })
 }

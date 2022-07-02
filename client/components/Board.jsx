@@ -1,27 +1,40 @@
-import React, {useEffect} from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, {useEffect, useState} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
 
-import { fetchNotes } from '../actions'
+import { fetchNotes, addNote} from '../actions'
 
 // import Note from './Note'
-import AddNote from  './AddNote'
+// import AddNote from  './AddNote'
 
 function Board(){
-const notes = useSelector(state => state.notes)
-const dispatch = useDispatch()
+  const [newNote, setNewNote] =useState('')
+  const notes = useSelector(state => state.notes)
+  const dispatch = useDispatch()
 
-useEffect(() => {
-  dispatch(fetchNotes())
-}, [])
+  useEffect(() => {
+    dispatch(fetchNotes())
+  }, [])
+
+  function handleChange (e) {
+    setNewNote(e.target.value)
+  }
+
+  function handleClick () {
+    dispatch(addNote(newNote))
+    setNewNote('')
+  }
 
   return(
     <>
     <div className='board'>
-        {notes.map((note) => (
-      <div key={note.id} className='note'>{note.text}</div>
-      ))}
+    {notes.map((note) => (
+          <div className='note' key={note}>{note}</div>
+        ))}
     </div>
-    <AddNote/>
+    <div className='add-note'>
+      <input onChange={handleChange} value={newNote}/>
+      <button onClick={handleClick}>Add new note</button>
+    </div>
     </>
   )
 }

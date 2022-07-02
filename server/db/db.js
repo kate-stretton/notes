@@ -9,13 +9,8 @@ function getNotes(db = connection) {
   return db('notes').select()
 }
 
-function addNote(note, db = connection) {
+function addNote(newNote, db = connection) {
   return db('notes')
-    .insert(note)
-    .then(([id]) => {
-      return {
-        id,
-        ...note,
-      }
-    })
+    .insert({ text: newNote })
+    .then(() => getNotes(db))
 }
