@@ -16,7 +16,7 @@ useEffect(() => {
 
   return(
     <div className='board'>
-    {notes.map((note) => (<Note key={note.id} id={note.id} text={note.text}/>))}
+    <Note/>
     </div>
   )
 }

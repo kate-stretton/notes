@@ -1,10 +1,15 @@
 import React from 'react'
+import {useSelector } from 'react-redux'
 
-function Note({text}){
+function Note(){
+  const notes = useSelector(state => state.notes)
   return(
-    <div className='note'>
-    <p>{text}</p>
-  </div>
+    <>
+    {notes.map((note) => (
+      <div key={note.id} className='note'>{note.text}</div>
+      ))}
+  </>
+  
   )
 }
 
