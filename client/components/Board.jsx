@@ -3,12 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { fetchNotes } from '../actions'
 
-import Note from './Note'
+// import Note from './Note'
 
 function Board(){
 const notes = useSelector(state => state.notes)
 const dispatch = useDispatch()
-
 
 useEffect(() => {
   dispatch(fetchNotes())
@@ -16,7 +15,9 @@ useEffect(() => {
 
   return(
     <div className='board'>
-    <Note/>
+        {notes.map((note) => (
+      <div key={note.id} className='note'>{note.text}</div>
+      ))}
     </div>
   )
 }
