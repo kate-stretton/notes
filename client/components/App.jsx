@@ -4,10 +4,11 @@
 // import { fetchFruits } from '../actions'
 
 import React from 'react'
+import Board from './Board'
 
 function App () {
   return (
-    <h1>Notes</h1>
+    <Board/>
   )
 }
 
