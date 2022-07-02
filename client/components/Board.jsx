@@ -1,12 +1,23 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { fetchNotes } from '../actions'
+
 import Note from './Note'
 
-function Board (){
+function Board(){
+const notes = useSelector(state => state.notes)
+const dispatch = useDispatch()
+
+
+useEffect(() => {
+  dispatch(fetchNotes())
+}, [])
+
   return(
-    <>
-    <h1>Hello world</h1>
-    <Note/>
-    </>
+    <div className='board'>
+    {notes.map((note) => (<Note key={note.id} id={note.id} text={note.text}/>))}
+    </div>
   )
 }
 
