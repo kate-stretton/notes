@@ -69,6 +69,9 @@ function Board(){
 
   return(
     <>
+    <div className='add-note'>
+     <AddNote/>
+    </div>
     <div className='board'>
     {notes.map((note) => (
       <Note key={note.id} note={note}/>
@@ -78,7 +81,6 @@ function Board(){
       <input onChange={handleChange} value={newNote}/>
       <button onClick={handleClick}>Add new note</button>
     </div> */}
-    <AddNote/>
     </>
   )
 }
