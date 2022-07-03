@@ -15,10 +15,12 @@ function AddNote() {
     setNewNote('')
   }
 
-  return <form onSubmit={handleSubmit}>
+  return (
+  <form onSubmit={handleSubmit}>
     <input value={newNote} onChange={e => setNewNote(e.target.value)} />
     <input type='submit' value='Save' />
   </form>
+  )
 }
 
 export default AddNote

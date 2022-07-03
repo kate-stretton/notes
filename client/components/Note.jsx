@@ -17,9 +17,14 @@ function Note(props){
 
   return(
     <div className='note'>
-      <button className='delete-icon' onClick={handleDelete} id={props.note.id}><BsX/></button>
-      <label>{props.note.text}</label>
+      <div className='note-header'>
+        <small>Date</small>
+        <i className='delete-icon' onClick={handleDelete} id={props.note.id}><BsX/></i>
       </div>
+      <div className='note-body'>
+        <label>{props.note.text}</label>
+      </div>
+    </div>
   )
 }
 
