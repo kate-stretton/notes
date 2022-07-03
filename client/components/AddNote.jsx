@@ -2,9 +2,6 @@ import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {saveNote} from '../actions'
 
-// import {addNote} from '../apis/notes'
-
-
 function AddNote() {
   const [newNote, setNewNote] = useState('')
   const dispatch = useDispatch()

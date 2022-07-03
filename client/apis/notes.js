@@ -1,7 +1,7 @@
 import request from 'superagent'
 const rootUrl = '/api/v1'
 
-//here's the http request
+//here's the http request!
 export function getNotes() {
   return request.get(rootUrl + '/notes').then((res) => {
     return res.body
