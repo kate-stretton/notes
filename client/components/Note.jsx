@@ -1,12 +1,18 @@
 import React from 'react'
-import { BsX} from "react-icons/bs"
-//import {useDispatch } from 'react-redux'
+import { BsX } from "react-icons/bs"
+import {removeNote} from '../actions'
+import {useDispatch} from 'react-redux'
 
 function Note(props){
-  //const dispatch = useDispatch()
+  const dispatch = useDispatch()
+
+  function handleDelete(){
+    dispatch(removeNote(props.note.id))
+  }
+
   return(
     <div className='note'>
-      <div className='delete-icon' key={props.note.id}><BsX/></div>
+      <button className='delete-icon' onClick={handleDelete} id={props.note.id}><BsX/></button>
       <label>{props.note.text}</label>
       </div>
   )

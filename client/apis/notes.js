@@ -1,9 +1,7 @@
 import request from 'superagent'
-
 const rootUrl = '/api/v1'
 
 //here's the http request
-
 export function getNotes() {
   return request.get(rootUrl + '/notes').then((res) => {
     return res.body
@@ -19,6 +17,6 @@ export function postNote(note) {
     })
 }
 
-export function deleteNote(id) {
+export function delNote(id) {
   return request.delete(rootUrl + '/notes/' + id)
 }
