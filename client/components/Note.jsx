@@ -6,8 +6,8 @@ function Note(props){
   //const dispatch = useDispatch()
   return(
     <div className='note'>
+      <div className='delete-icon' key={props.note.id}><BsX/></div>
       <label>{props.note.text}</label>
-      <button key={props.note.id}><BsX/></button>
       </div>
   )
 }
