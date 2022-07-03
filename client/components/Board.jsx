@@ -70,8 +70,8 @@ function Board(){
   return(
     <>
     <div className='board'>
-    {notes.map((note, i) => (
-      <Note key={i} note={note}/>
+    {notes.map((note) => (
+      <Note key={note.id} note={note}/>
           ))}
     </div>
     {/* <div className='add-note'>

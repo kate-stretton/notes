@@ -1,5 +1,5 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { BsX} from "react-icons/bs"
 //import {useDispatch } from 'react-redux'
 
 function Note(props){
@@ -7,8 +7,9 @@ function Note(props){
   return(
     <div className='note'>
       <label>{props.note.text}</label>
+      <button key={props.note.id}><BsX/></button>
       </div>
   )
 }
 
-export default connect()(Note)
+export default Note
