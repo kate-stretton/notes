@@ -1,13 +1,18 @@
 import React from 'react'
 import { BsX } from "react-icons/bs"
-import {removeNote} from '../actions'
-import {useDispatch} from 'react-redux'
+import {removeNote, fetchNotes} from '../actions'
+import {useDispatch}from 'react-redux'
+
 
 function Note(props){
   const dispatch = useDispatch()
 
   function handleDelete(){
     dispatch(removeNote(props.note.id))
+    .then(dispatch(fetchNotes()))
+    .catch((err) => {
+      console.log(err)
+    })
   }
 
   return(

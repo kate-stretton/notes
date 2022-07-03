@@ -18,7 +18,6 @@ export function fetchNotes() {
 }
 
 export function addNote(note) {
-  console.log('payload', note)
   return {
     type: ADD_NOTE,
     note,
