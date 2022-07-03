@@ -5,6 +5,7 @@ import {useDispatch}from 'react-redux'
 
 
 function Note(props){
+
   const dispatch = useDispatch()
 
   function handleDelete(){
@@ -16,7 +17,7 @@ function Note(props){
   }
 
   return(
-    <div className='note' draggable>
+    <div className='note'>
       <div className='note-header'>
         <small>{props.note.created_at}</small>
         <i className='delete-icon' onClick={handleDelete} id={props.note.id}><BsX/></i>
