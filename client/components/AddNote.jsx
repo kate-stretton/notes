@@ -1,24 +1,24 @@
-// import React, {useState} from 'react'
-// import {useDispatch} from 'react-redux'
+import React, {useState} from 'react'
+import {useDispatch} from 'react-redux'
+import {saveNote} from '../actions'
 
-// // import {addNote} from '../apis/notes'
-// import {addNote} from '../actions'
+// import {addNote} from '../apis/notes'
 
-// function AddNote() {
-//   const [newNote, setNewNote] = useState('')
-//   const dispatch = useDispatch()
 
-//   function handleSubmit(e) {
-//     e.preventDefault()
-//     dispatch(addNote(newNote))
-//     setNewNote('')
-//   }
+function AddNote() {
+  const [newNote, setNewNote] = useState('')
+  const dispatch = useDispatch()
 
-//   return <form onSubmit={handleSubmit}>
-//     <label htmlFor='newNote'>Add note: </label>
-//     <input id='newNote' type='text' name='note' value={newNote} onChange={e => setNewNote(e.target.value)} />
-//     <input type='submit' value='Save' />
-//   </form>
-// }
+  function handleSubmit(e) {
+    e.preventDefault()
+    dispatch(saveNote(newNote))
+    setNewNote('')
+  }
 
-// export default AddNote
+  return <form onSubmit={handleSubmit}>
+    <input value={newNote} onChange={e => setNewNote(e.target.value)} />
+    <input type='submit' value='Save' />
+  </form>
+}
+
+export default AddNote

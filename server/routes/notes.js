@@ -7,25 +7,25 @@ const router = express.Router()
 router.get('/', (req, res) => {
   db.getNotes()
     .then((results) => {
-      res.json({ notes: results.map((note) => note.text) })
+      res.json(results)
       return null
     })
     .catch((err) => {
       console.log(err)
-      res.status(500).json({ message: 'Somthing went wrong' })
+      res.status(500).json({ message: 'Something went wrong' })
     })
 })
 
 router.post('/', (req, res) => {
-  const note = req.body.newNote
+  const { note } = req.body
   db.addNote(note)
-    .then((results) => {
-      res.json({ notes: results.map((note) => note.text) })
+    .then((id) => {
+      res.json(id)
       return null
     })
     .catch((err) => {
       console.log(err)
-      res.status(500).json({ message: 'Somthing went wrong' })
+      res.status(500).json({ message: 'Something went wrong' })
     })
 })
 

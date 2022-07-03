@@ -1,6 +1,7 @@
-import { getNotes, addNewNote } from '../apis/notes'
+import { getNotes, postNote } from '../apis/notes'
 
 export const SET_NOTES = 'SET_NOTES'
+export const ADD_NOTE = 'ADD_NOTE'
 
 export function fetchNotes() {
   return (dispatch) => {
@@ -15,11 +16,18 @@ export function fetchNotes() {
   }
 }
 
-export function addNote(newNote) {
+export function addNote(note) {
+  console.log('payload', note)
+  return {
+    type: ADD_NOTE,
+    note,
+  }
+}
+export function saveNote(note) {
   return (dispatch) => {
-    return addNewNote(newNote)
-      .then((notes) => {
-        dispatch(setNotes(notes))
+    return postNote(note)
+      .then((newNote) => {
+        dispatch(addNote(newNote))
         return null
       })
       .catch((err) => {

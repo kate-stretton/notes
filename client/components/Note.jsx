@@ -1,11 +1,14 @@
-// import React from 'react'
-// //import {useDispatch } from 'react-redux'
+import React from 'react'
+import {connect} from 'react-redux'
+//import {useDispatch } from 'react-redux'
 
-// function Note({text}){
-//   //const dispatch = useDispatch()
-//   return(
-//     <div className='note'>{text}</div>
-//   )
-// }
+function Note(props){
+  //const dispatch = useDispatch()
+  return(
+    <div className='note'>
+      <label>{props.note.text}</label>
+      </div>
+  )
+}
 
-// export default Note
+export default connect()(Note)
