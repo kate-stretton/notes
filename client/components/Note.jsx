@@ -18,7 +18,7 @@ function Note(props){
   return(
     <div className='note'>
       <div className='note-header'>
-        <small>Date</small>
+        <small>{props.note.created_at}</small>
         <i className='delete-icon' onClick={handleDelete} id={props.note.id}><BsX/></i>
       </div>
       <div className='note-body'>
