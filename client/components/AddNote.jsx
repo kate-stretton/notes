@@ -14,8 +14,10 @@ function AddNote() {
 
   return (
   <form onSubmit={handleSubmit}>
-    <input value={newNote} onChange={e => setNewNote(e.target.value)} />
-    <input type='submit' value='Save' />
+    <textarea value={newNote} placeholder='Add a note...' onChange={e => setNewNote(e.target.value)} />
+    <div className='add-footer'>
+      <button type='submit'>Save</button>
+    </div>
   </form>
   )
 }

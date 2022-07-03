@@ -16,14 +16,14 @@ function Board(){
 
   return(
     <>
-    <div className='add-note'>
-     <AddNote/>
-    </div>
     <div className='board'>
-    {notes.map((note) => (
-      <Note key={note.id} note={note}/>
-          ))}
-    </div>
+      <div className='add-note'>
+      <AddNote/>
+      </div>
+      {notes.map((note) => (
+        <Note key={note.id} note={note}/>
+            ))}
+      </div>
     </>
   )
 }
